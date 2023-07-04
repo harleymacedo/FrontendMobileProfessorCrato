@@ -31,7 +31,7 @@ function StackNavigator () {
             options={{
                 title: "Laboratorio Detalhe",
                 headerStyle: {
-                backgroundColor: '#124050',
+                    backgroundColor: '#124050',
                 },
                 headerTintColor: "#fff"
             }}/>
@@ -48,7 +48,7 @@ export default function App() {
                     name="ProfessorScreen"
                     component={ProfessorScreen}
                     options={{ 
-                        tabBarLabel: 'ProfessorScreen', 
+                        tabBarLabel: 'Professor', 
                         tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
                     }} 
                 />
@@ -57,7 +57,7 @@ export default function App() {
                     name="LaboratorioScreen"
                     component={LaboratorioScreen}
                     options={{ 
-                        tabBarLabel: 'LaboratorioScreen', 
+                        tabBarLabel: 'Laboratorio', 
                         tabBarIcon: () => (<Image source={require('./assets/icons8-evento-32.png')} />) 
                     }} 
                 />
@@ -66,7 +66,7 @@ export default function App() {
                     name="SobreScreen"
                     component={SobreScreen}
                     options={{ 
-                        tabBarLabel: 'SobreScreen', 
+                        tabBarLabel: 'Sobre', 
                         tabBarIcon: () => (<Image source={require('./assets/icons8-sobre-32.png')} />) 
                     }} 
                 />
