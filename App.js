@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import CabecalhoComp from './components/CabecalhoComp'
 import RodapeComp from './components/RodapeComp'
 import ProfessorScreen from './screens/ProfessorScreen'
+import ComissaoScreen from './screens/ComissaoScreen'
+import AtividadeScreen from './screens/AtividadeScreen'
 import LaboratorioScreen from './screens/LaboratorioScreen'
 import ProfessorDetalheScreen from './screens/ProfessorDetalheScreen'
 import LaboratorioDetalheScreen from './screens/LaboratorioDetalheScreen'
@@ -49,6 +51,24 @@ export default function App() {
                     component={ProfessorScreen}
                     options={{ 
                         tabBarLabel: 'Professor', 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
+                    }} 
+                />
+
+                <Tab.Screen 
+                    name="ComissaoScreen"
+                    component={ComissaoScreen}
+                    options={{ 
+                        tabBarLabel: 'Comissão', 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
+                    }} 
+                />
+
+                <Tab.Screen 
+                    name="AtividadeScreen"
+                    component={AtividadeScreen}
+                    options={{ 
+                        tabBarLabel: 'Atividade', 
                         tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
                     }} 
                 />
