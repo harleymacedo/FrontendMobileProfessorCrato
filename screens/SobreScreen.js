@@ -3,9 +3,9 @@ import {SafeAreaView, View, Text, Table, StyleSheet, Image} from 'react-native'
 export default SobreScreen = () => {
     return (
         <SafeAreaView style={styles.container1}>
-            <Text style={styles.textoTitulo1} >Sobre</Text>
-            <Text style={styles.textoTitulo2} >SAD</Text>
+            <Text style={styles.textoTitulo2} >SADO</Text>
             <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
+            <Text style={styles.textoTitulo1} >Sobre</Text>
             <View style={styles.containerDescricao}>
                 <Text style={styles.textoDescricao}>
                     O Sistema de Apoio ao Docente(SAD) foi desenvolvido no Laboratorio de Sistemas de Informação(LaIS) do IFCE Campus Crato, pelo professor
@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
     textoTitulo1: {
         color: '#119922',
         fontFamily: 'Verdana',
-        marginTop: 10,
+        marginTop: 40,
         fontSize: 28
     },
     textoTitulo2: {
         color: '#119922',
         fontFamily: 'Verdana',
-        marginTop: 30,
-        fontSize: 22
+        marginTop: 10,
+        fontSize: 18
     },
     textoTitulo3: {
         color: '#119922',
