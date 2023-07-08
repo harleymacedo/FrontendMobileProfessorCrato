@@ -1,17 +1,26 @@
-import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native'
 import { useState, useEffect } from 'react'
+import axios from 'axios'
+import CardProfessorComp from '../components/CardProfComp'
 
 export default ProfessorScreen = () => {
 
     const [professores, setProfessores] = useState([])
     const [texto, setTexto] = useState('')
 
-    const atualizarTexto = () => {
-
+    const atualizarTexto = (value) => {
+        setTexto(value)
     }
 
-    const pesquisar = () => {
-
+    const pesquisar = async () => {
+        try {
+            const url = `http://localhost:3000/professor/porNome/${texto}`
+            const result = await axios.get(url)
+            console.log(result.data.professores)
+            setProfessores(result.data.professores)
+        } catch (error) {
+            Alert.alert('Erro durante a consulta')
+        }
     }
 
     return (
@@ -20,14 +29,20 @@ export default ProfessorScreen = () => {
             <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
             <Text style={styles.textoTitulo1} >Professor</Text>
             <View style={styles.containerForm}>
-                <TextInput style={styles.input1} onChangeText={null} placeholder='Pesquisa por nome ou área' />
-                <TouchableOpacity style={styles.button1} onPress={null}>
+                <TextInput style={styles.input1} onChangeText={atualizarTexto} placeholder='Pesquisa por nome ou área' />
+                <TouchableOpacity style={styles.button1} onPress={pesquisar}>
                     <Text style={styles.textButton1} >Filtrar</Text>
                 </TouchableOpacity>
             </View>
-            <View style={styles.containerResultado}>
-
-            </View>
+            <ScrollView style={styles.containerResultado}>
+                {
+                    professores.map( (professorAtual) => {
+                        return(
+                            <CardProfessorComp key={professorAtual._id} professor={professorAtual} />
+                        )
+                    })
+                }
+            </ScrollView>
         </SafeAreaView>
     )
 }
