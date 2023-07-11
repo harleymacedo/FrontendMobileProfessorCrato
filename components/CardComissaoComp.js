@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-export default CardProfComp = (props) => {
+export default CardComissaoComp = (props) => {
     return (
         <View style={styles.containerPrincipal}>
-            <Text>NOME: {props.professor.nome}</Text>
-            <Text>EMAIL: {props.professor.email}</Text>
-            <Text>ÁREA: {props.professor.area}</Text>
+            <Text>NOME: </Text>
+            <Text>INÍCIO: </Text>
+            <Text>TÉRMINO: </Text>
+            <Text>OBJETIVO: </Text>
             <TouchableOpacity>
                 <Text>+ Detalhes</Text>
             </TouchableOpacity>

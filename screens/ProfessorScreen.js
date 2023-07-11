@@ -16,7 +16,6 @@ export default ProfessorScreen = () => {
         try {
             const url = `http://localhost:3000/professor/porNome/${texto}`
             const result = await axios.get(url)
-            console.log(result.data.professores)
             setProfessores(result.data.professores)
         } catch (error) {
             Alert.alert('Erro durante a consulta')
