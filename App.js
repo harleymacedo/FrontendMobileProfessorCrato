@@ -60,16 +60,7 @@ export default function App() {
                     component={ComissaoScreen}
                     options={{ 
                         tabBarLabel: 'Comissão', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
-                    }} 
-                />
-
-                <Tab.Screen 
-                    name="AtividadeScreen"
-                    component={AtividadeScreen}
-                    options={{ 
-                        tabBarLabel: 'Atividade', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-grupo-b-32.png')} />) 
                     }} 
                 />
 
@@ -78,7 +69,7 @@ export default function App() {
                     component={LaboratorioScreen}
                     options={{ 
                         tabBarLabel: 'Laboratorio', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-evento-32.png')} />) 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />) 
                     }} 
                 />
 

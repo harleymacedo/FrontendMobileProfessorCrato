@@ -12,6 +12,10 @@ export default ComissaoScreen = () => {
         setTexto(value)
     }
 
+    const selectItem = (value) => {
+        setTexto(value)
+    }
+
     const pesquisar = async () => {
         try {
             const url = `http://localhost:3000/comissao/porNome/${texto}`
@@ -28,9 +32,14 @@ export default ComissaoScreen = () => {
             <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
             <Text style={styles.textoTitulo1} >Comissão</Text>
             <View style={styles.containerForm}>
-                <TextInput style={styles.input1} onChangeText={atualizarTexto} placeholder='Pesquisa por nome' />
+                <TextInput style={styles.input1} onChangeText={atualizarTexto} placeholder='Pesquisa por nome' />                
                 <TouchableOpacity style={styles.button1} onPress={pesquisar}>
                     <Text style={styles.textButton1} >Filtrar</Text>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <TouchableOpacity style={styles.button2}>
+                    <Text style={styles.textButton2}> + Nova comissão </Text>
                 </TouchableOpacity>
             </View>
             <ScrollView style={styles.containerResultado}>
@@ -87,7 +96,7 @@ const styles = StyleSheet.create({
         borderRadius: 3
     },
     button1: {
-        width: 60,
+        width: 94,
         height: 30,
         borderRadius: 3,
         backgroundColor: '#77aa88',
@@ -97,9 +106,20 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 5
     },
+    button2: {
+        width: 300,
+        height: 30,
+        borderRadius: 3,
+        backgroundColor: '#889988',
+        marginLeft: 4
+    },
+    textButton2: {
+        textAlign: 'center',
+        paddingTop: 5
+    },
     containerResultado: {
         width: 300,
-        height: 450,
+        height: 350,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: '#77aa88',
