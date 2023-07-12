@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         borderRadius: 3
     },
     button1: {
-        width: 60,
+        width: 94,
         height: 30,
         borderRadius: 3,
         backgroundColor: '#77aa88',
@@ -99,13 +99,12 @@ const styles = StyleSheet.create({
     },
     containerResultado: {
         width: 300,
-        height: 450,
+        height: 420,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: '#77aa88',
         marginBottom: 60,
         marginTop: 20,
-        // backgroundColor: 'silver'
     }
 
 })
