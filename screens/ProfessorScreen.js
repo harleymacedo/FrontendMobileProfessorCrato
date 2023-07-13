@@ -1,4 +1,4 @@
-import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native'
+import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CardProfessorComp from '../components/CardProfComp'
@@ -7,6 +7,22 @@ export default ProfessorScreen = () => {
 
     const [professores, setProfessores] = useState([])
     const [texto, setTexto] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect( () => {
+        const getDadosInciais = async () => {
+            try {
+                setIsLoading(true)                
+                const url = 'http://localhost:3000/professor/todos'
+                const profsBuscados = await axios.get(url)
+                setProfessores(profsBuscados.data.professores)
+                setIsLoading(false)
+            } catch (error) {
+                Alert.alert('Erro durante a consulta')
+            }
+        }
+        getDadosInciais()
+    }, [])
 
     const atualizarTexto = (value) => {
         setTexto(value)
@@ -35,6 +51,7 @@ export default ProfessorScreen = () => {
             </View>
             <ScrollView style={styles.containerResultado}>
                 {
+                    isLoading ? <ActivityIndicator /> : 
                     professores.map( (professorAtual) => {
                         return(
                             <CardProfessorComp key={professorAtual._id} professor={professorAtual} />

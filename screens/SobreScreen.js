@@ -8,7 +8,7 @@ export default SobreScreen = () => {
             <Text style={styles.textoTitulo1} >Sobre</Text>
             <View style={styles.containerDescricao}>
                 <Text style={styles.textoDescricao}>
-                    O Sistema de Apoio ao Docente(SAD) foi desenvolvido no Laboratorio de Sistemas de Informação(LaIS) do IFCE Campus Crato, pelo professor
+                    O Sistema de Apoio ao Docente(SADO) foi desenvolvido no Laboratorio de Sistemas de Informação(LaIS) do IFCE Campus Crato, pelo professor
                     e pesquisador Harley Macêdo. O sistema tem como objetivo auxiliar tarefas relacionadas à reserva de laboratórios,
                     registro de manuntenção em laboratórios e busca de informações básicas sobre os professores do curso e comissões
                     de trabalho. O sistema possui código fonte aberto e pode ser utilizado para aulas.
