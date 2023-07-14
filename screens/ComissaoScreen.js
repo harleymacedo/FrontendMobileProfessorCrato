@@ -7,6 +7,22 @@ export default ComissaoScreen = () => {
 
     const [comissoes, setComissoes] = useState([])
     const [texto, setTexto] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect( () => {
+        const getDadosInciais = async () => {
+            try {
+                setIsLoading(true)                
+                const url = 'http://localhost:3000/comissao/todos'
+                const comissoesBuscados = await axios.get(url)
+                setComissoes(comissoesBuscados.data.comissoes)
+                setIsLoading(false)
+            } catch (error) {
+                Alert.alert('Erro durante a consulta')
+            }
+        }
+        getDadosInciais()
+    }, [])
 
     const atualizarTexto = (value) => {
         setTexto(value)

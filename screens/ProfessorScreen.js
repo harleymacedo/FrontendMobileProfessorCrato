@@ -93,8 +93,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 20,
-        height: 100,
-        // backgroundColor: 'gray'
+        height: 100
     },
     input1: {
         width: 200,
@@ -122,6 +121,9 @@ const styles = StyleSheet.create({
         borderColor: '#77aa88',
         marginBottom: 60,
         marginTop: 20,
+    },
+    spinner1: {
+        size: "large",
+        color: "#00ff00"
     }
-
 })

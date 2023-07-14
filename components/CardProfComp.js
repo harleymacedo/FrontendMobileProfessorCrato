@@ -3,10 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 export default CardProfComp = (props) => {
     return (
         <View style={styles.containerPrincipal}>
-            <Text>NOME: {props.professor.nome}</Text>
-            <Text>EMAIL: {props.professor.email}</Text>
-            <Text>ÁREA: {props.professor.area}</Text>            
-            <Text>FONE: {props.professor.area}</Text>            
+            <Text style={styles.rotulo}>Nome:</Text>
+            <Text style={styles.textoInfo}>{props.professor.nome}</Text>
+            <Text style={styles.rotulo}>Email:</Text>
+            <Text style={styles.textoInfo}>{props.professor.email}</Text>
+            <Text style={styles.rotulo}>Área:</Text>
+            <Text style={styles.textoInfo}>{props.professor.area}</Text>                
         </View>
     )
 }
@@ -19,5 +21,12 @@ const styles = StyleSheet.create({
         margin: 14,
         borderRadius: 4,
         padding: 8
+    },
+    rotulo: {
+        fontWeight: 'bold',
+        fontSize: 14
+    },
+    textoInfo: {
+        fontSize: 10,
     }
 })

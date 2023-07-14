@@ -1,4 +1,4 @@
-import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native'
+import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CardLaboratorioComp from '../components/CardLaboratorioComp'
@@ -6,21 +6,22 @@ import CardLaboratorioComp from '../components/CardLaboratorioComp'
 export default LaboratorioScreen = () => {
 
     const [laboratorios, setLaboratorios] = useState([])
-    const [texto, setTexto] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
-    const atualizarTexto = (value) => {
-        setTexto(value)
-    }
-
-    const pesquisar = async () => {
-        try {
-            const url = `http://localhost:3000/laboratorio/porNome/${texto}`
-            const result = await axios.get(url)
-            setLaboratorios(result.data.laboratorios)
-        } catch (error) {
-            Alert.alert('Erro durante a consulta')
+    useEffect( () => {
+        const getDadosInciais = async () => {
+            try {
+                setIsLoading(true)                
+                const url = 'http://localhost:3000/laboratorio/todos'
+                const labsBuscados = await axios.get(url)
+                setLaboratorios(labsBuscados.data.laboratorios)
+                setIsLoading(false)
+            } catch (error) {
+                Alert.alert('Erro durante a consulta')
+            }
         }
-    }
+        getDadosInciais()
+    }, [])
 
     return (
         <SafeAreaView style={styles.container1}>
@@ -28,12 +29,6 @@ export default LaboratorioScreen = () => {
             <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
             <Text style={styles.textoTitulo1} >Laboratório</Text>
             <View style={styles.containerForm}>
-                <TextInput style={styles.input1} onChangeText={atualizarTexto} placeholder='Pesquisa por nome' />
-                <TouchableOpacity style={styles.button1} onPress={pesquisar}>
-                    <Text style={styles.textButton1} >Filtrar</Text>
-                </TouchableOpacity>
-            </View>
-            <View>
                 <TouchableOpacity style={styles.button2}>
                     <Text style={styles.textButton2}> + Nova ocorrência </Text>
                 </TouchableOpacity>
@@ -81,8 +76,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 20,
-        height: 100,
-        // backgroundColor: 'gray'
+        height: 50,
     },
     input1: {
         width: 200,
@@ -115,13 +109,12 @@ const styles = StyleSheet.create({
     },
     containerResultado: {
         width: 300,
-        height: 350,
+        height: 370,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: '#77aa88',
         marginBottom: 60,
-        marginTop: 20,
-        // backgroundColor: 'silver'
+        marginTop: 20
     }
 
 })
