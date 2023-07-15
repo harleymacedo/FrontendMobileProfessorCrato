@@ -1,7 +1,7 @@
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CardComissaoComp from '../components/CardComissaoComp'
+import CardComissaoComp from './CardComissaoComp'
 
 export default ComissaoScreen = () => {
 

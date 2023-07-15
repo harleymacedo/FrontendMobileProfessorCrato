@@ -4,7 +4,7 @@ export default CardLaboratorioComp = (props) => {
 
     const navegarParaDetalhe = () => {
         console.log('Vai navegar')
-        navigation.navigate('LaboratorioDetalheScreen')
+        props.navigation.navigate('LaboratorioDetalheScreen')
     }
 
     return (

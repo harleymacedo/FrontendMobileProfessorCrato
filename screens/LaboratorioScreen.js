@@ -1,7 +1,7 @@
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CardLaboratorioComp from '../components/CardLaboratorioComp'
+import CardLaboratorioComp from './CardLaboratorioComp'
 
 export default LaboratorioScreen = ({navigation}) => {
 
@@ -37,7 +37,7 @@ export default LaboratorioScreen = ({navigation}) => {
                 {
                     laboratorios.map( (laboratorioAtual) => {
                         return(
-                            <CardLaboratorioComp key={laboratorioAtual._id} laboratorio={laboratorioAtual} />
+                            <CardLaboratorioComp key={laboratorioAtual._id} laboratorio={laboratorioAtual} navigation={navigation} />
                         )
                     })
                 }

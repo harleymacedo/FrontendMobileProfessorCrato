@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import CabecalhoComp from './components/CabecalhoComp'
-import RodapeComp from './components/RodapeComp'
+import CabecalhoComp from './screens/CabecalhoComp'
+import RodapeComp from './screens/RodapeComp'
 import ProfessorScreen from './screens/ProfessorScreen'
 import ComissaoScreen from './screens/ComissaoScreen'
 import AtividadeScreen from './screens/AtividadeScreen'
@@ -28,6 +28,14 @@ function StackNavigator () {
                 // },
                 headerTintColor: "#fff"
             }}/>
+
+            <Stack.Screen 
+                name="LaboratorioScreen" 
+                component={LaboratorioScreen} 
+                options={
+                    {title: "Laboratório Screen"}
+                }
+            />
 
             <Stack.Screen name="LaboratorioDetalheScreen" component={LaboratorioDetalheScreen} 
             options={{

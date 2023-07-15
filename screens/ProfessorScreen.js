@@ -1,7 +1,7 @@
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CardProfessorComp from '../components/CardProfComp'
+import CardProfessorComp from './CardProfComp'
 
 export default ProfessorScreen = () => {
 
