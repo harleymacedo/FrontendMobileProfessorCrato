@@ -1,6 +1,12 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 export default CardLaboratorioComp = (props) => {
+
+    const navegarParaDetalhe = () => {
+        console.log('Vai navegar')
+        navigation.navigate('LaboratorioDetalheScreen')
+    }
+
     return (
         <View style={styles.containerPrincipal}>
             <Text style={styles.rotulo}>Nome:</Text>
@@ -9,7 +15,7 @@ export default CardLaboratorioComp = (props) => {
             <Text style={styles.textoInfo}>{props.laboratorio.qtdMaquinas}</Text>
             <Text style={styles.rotulo}>Prof. Responsável:</Text>
             <Text style={styles.textoInfo}>{props.laboratorio.profResponsavel}</Text>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={navegarParaDetalhe}>
                 <Text style={styles.textButton1}> + Detalhes </Text>
             </TouchableOpacity>
         </View>

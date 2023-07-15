@@ -51,7 +51,7 @@ export default ProfessorScreen = () => {
             </View>
             <ScrollView style={styles.containerResultado}>
                 {
-                    isLoading ? <ActivityIndicator /> : 
+                    isLoading ? <ActivityIndicator style={styles.spinner1} /> : 
                     professores.map( (professorAtual) => {
                         return(
                             <CardProfessorComp key={professorAtual._id} professor={professorAtual} />

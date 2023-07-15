@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CardLaboratorioComp from '../components/CardLaboratorioComp'
 
-export default LaboratorioScreen = () => {
+export default LaboratorioScreen = ({navigation}) => {
 
     const [laboratorios, setLaboratorios] = useState([])
     const [isLoading, setIsLoading] = useState(false)
