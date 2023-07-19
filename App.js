@@ -17,77 +17,85 @@ import SobreScreen from './screens/SobreScreen'
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 
-function StackNavigator () {
+function StackNavigator() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="ProfessorDetalheScreen" component={ProfessorDetalheScreen} 
-                options={{
-                title: "Professor Detalhe",
-                // headerStyle: {
-                // backgroundColor: '#124050',
-                // },
-                headerTintColor: "#fff"
-            }}/>
 
-            <Stack.Screen 
-                name="LaboratorioScreen" 
-                component={LaboratorioScreen} 
+            <Stack.Screen
+                name="ProfessorDetalheScreen"
+                component={ProfessorDetalheScreen}
                 options={
-                    {title: "Laboratório Screen"}
+                    { title: "Professor Detalhe", }
                 }
             />
 
-            <Stack.Screen name="LaboratorioDetalheScreen" component={LaboratorioDetalheScreen} 
-            options={{
-                title: "Laboratorio Detalhe",
-                headerStyle: {
-                    backgroundColor: '#124050',
-                },
-                headerTintColor: "#fff"
-            }}/>
+            <Stack.Screen
+                name="LaboratorioScreen"
+                component={LaboratorioScreen}
+                options={
+                    { title: "Laboratório Screen" }
+                }
+            />
+
+            <Stack.Screen
+                name="LaboratorioDetalheScreen"
+                component={LaboratorioDetalheScreen}
+                options={
+                    { title: "Laboratorio Detalhe" }
+                }
+            />
+
+            <Stack.Screen
+                name="LaboratorioDetalheScreen"
+                component={LaboratorioDetalheScreen}
+                options={
+                    { title: "Laboratorio Detalhe" }
+                }
+            />
+
         </Stack.Navigator>
     )
 }
 
 export default function App() {
     return (
-        <NavigationContainer>            
+        <NavigationContainer>
             <Tab.Navigator screenOptions={{ headerShown: false }} >
 
-                <Tab.Screen 
+                <Tab.Screen
                     name="ProfessorScreen"
                     component={ProfessorScreen}
-                    options={{ 
-                        tabBarLabel: 'Professor', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
-                    }} 
+                    options={{
+                        tabBarLabel: 'Professor',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />)
+                    }}
                 />
 
-                <Tab.Screen 
+                <Tab.Screen
                     name="ComissaoScreen"
                     component={ComissaoScreen}
-                    options={{ 
-                        tabBarLabel: 'Comissão', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-grupo-b-32.png')} />) 
-                    }} 
+                    options={{
+                        tabBarLabel: 'Comissão',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-grupo-b-32.png')} />)
+                    }}
                 />
 
-                <Tab.Screen 
+                <Tab.Screen
                     name="LaboratorioScreen"
                     component={LaboratorioScreen}
-                    options={{ 
-                        tabBarLabel: 'Laboratorio', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />) 
-                    }} 
+                    options={{
+                        tabBarLabel: 'Laboratorio',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
+                    }}
                 />
 
-                <Tab.Screen 
+                <Tab.Screen
                     name="SobreScreen"
                     component={SobreScreen}
-                    options={{ 
-                        tabBarLabel: 'Sobre', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-sobre-32.png')} />) 
-                    }} 
+                    options={{
+                        tabBarLabel: 'Sobre',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-sobre-32.png')} />)
+                    }}
                 />
 
             </Tab.Navigator>
