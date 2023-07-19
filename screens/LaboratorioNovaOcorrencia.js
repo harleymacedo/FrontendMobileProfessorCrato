@@ -12,10 +12,11 @@ export default LaboratorioNovaOcorrencia = () => {
             <Text style={styles.textoTitulo1} >Nova ocorrência</Text>
 
             <View style={styles.containerForm}>
-                <TextInput style={styles.input1} placeholder='Pesquisa por nome' />                
-                <TouchableOpacity style={styles.button1} >
-                    <Text style={styles.textButton1} >Filtrar</Text>
-                </TouchableOpacity>
+                <TextInput style={styles.input1} placeholder='Qual Laboratório' />
+                <TextInput style={styles.input1} placeholder='Título' />
+                <TextInput style={styles.input1} placeholder='Descrição' />
+                <TextInput style={styles.input1} placeholder='Nível de urgência' />
+
             </View>
 
             <View>
@@ -23,7 +24,7 @@ export default LaboratorioNovaOcorrencia = () => {
                     <Text style={styles.textButton2}> Enviar </Text>
                 </TouchableOpacity>
             </View>
-            
+
         </SafeAreaView>
     )
 }
@@ -55,18 +56,19 @@ const styles = StyleSheet.create({
     },
     containerForm: {
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'center',
         marginTop: 20,
         height: 100,
         // backgroundColor: 'gray'
     },
     input1: {
-        width: 200,
+        width: 350,
         height: 30,
         borderWidth: 1,
         borderColor: '#77aa88',
-        borderRadius: 3
+        borderRadius: 3,
+        marginTop: 10
     },
     button1: {
         width: 94,

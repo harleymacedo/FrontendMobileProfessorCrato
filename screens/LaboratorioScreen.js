@@ -23,13 +23,18 @@ export default LaboratorioScreen = ({navigation}) => {
         getDadosInciais()
     }, [])
 
+    const navegarParaOcorrencia = () => {
+        console.log('Vai navegar para Lab nov oco')
+        navigation.navigate('LaboratorioNovaOcorrencia')
+    }
+
     return (
         <SafeAreaView style={styles.container1}>
             <Text style={styles.textoTitulo2} >SADO</Text>
             <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
             <Text style={styles.textoTitulo1} >Laboratório</Text>
             <View style={styles.containerForm}>
-                <TouchableOpacity style={styles.button2}>
+                <TouchableOpacity style={styles.button2} onPress={navegarParaOcorrencia}>
                     <Text style={styles.textButton2}> + Nova ocorrência </Text>
                 </TouchableOpacity>
             </View>
