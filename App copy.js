@@ -20,47 +20,17 @@ import SobreScreen from './screens/SobreScreen'
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 
-function TabNavigatorCompleta() {
+function StackLogin() {
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false }} >
-
-            <Tab.Screen
-                name="ProfessorTab"
-                component={StackNavigatorProfessor}
-                options={{
-                    tabBarLabel: 'Professor',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />)
-                }}
+        <Stack.Navigator>
+            <Stack.Screen
+                name="LoginScreen"
+                component={LoginScreen}
+                options={
+                    { title: 'Login' }
+                }
             />
-
-            <Tab.Screen
-                name="ComissaoTab"
-                component={StackNavigatorComissao}
-                options={{
-                    tabBarLabel: 'Comissão',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-grupo-b-32.png')} />)
-                }}
-            />
-
-            <Tab.Screen
-                name="LaboratorioTab"
-                component={StackNavigatorLaboratorio}
-                options={{
-                    tabBarLabel: 'Laboratorio',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
-                }}
-            />
-
-            <Tab.Screen
-                name="SobreTab"
-                component={SobreScreen}
-                options={{
-                    tabBarLabel: 'Sobre',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-sobre-32.png')} />)
-                }}
-            />
-
-        </Tab.Navigator>
+        </Stack.Navigator>
     )
 }
 
@@ -141,28 +111,45 @@ function StackNavigatorLaboratorio() {
 export default function App() {
     return (
         <NavigationContainer>
+            <Tab.Navigator screenOptions={{ headerShown: false }} >
 
-            <Stack.Navigator>
-
-                <Stack.Screen
-                    name="LoginScreen"
-                    component={LoginScreen}
-                    options={{ 
-                        title: '',
-                        headerShown: false
+                <Tab.Screen
+                    name="ProfessorTab"
+                    component={StackNavigatorProfessor}
+                    options={{
+                        tabBarLabel: 'Professor',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />)
                     }}
                 />
 
-                <Stack.Screen
-                    name="TabNavigatorCompleta"
-                    component={TabNavigatorCompleta}
-                    options={
-                        { title: 'Login' }
-                    }
+                <Tab.Screen
+                    name="ComissaoTab"
+                    component={StackNavigatorComissao}
+                    options={{
+                        tabBarLabel: 'Comissão',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-grupo-b-32.png')} />)
+                    }}
                 />
 
-            </Stack.Navigator>
-            
+                <Tab.Screen
+                    name="LaboratorioTab"
+                    component={StackNavigatorLaboratorio}
+                    options={{
+                        tabBarLabel: 'Laboratorio',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
+                    }}
+                />
+
+                <Tab.Screen
+                    name="SobreTab"
+                    component={SobreScreen}
+                    options={{
+                        tabBarLabel: 'Sobre',
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-sobre-32.png')} />)
+                    }}
+                />
+
+            </Tab.Navigator>
         </NavigationContainer>
     )
 }

@@ -24,7 +24,6 @@ export default LaboratorioScreen = ({navigation}) => {
     }, [])
 
     const navegarParaOcorrencia = () => {
-        console.log('Vai navegar para Lab nov oco')
         navigation.navigate('LaboratorioNovaOcorrencia')
     }
 
