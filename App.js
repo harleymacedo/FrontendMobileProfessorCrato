@@ -156,9 +156,10 @@ export default function App() {
                 <Stack.Screen
                     name="TabNavigatorCompleta"
                     component={TabNavigatorCompleta}
-                    options={
-                        { title: 'Login' }
-                    }
+                    options={{ 
+                        title: '',
+                        headerShown: false
+                    }}
                 />
 
             </Stack.Navigator>

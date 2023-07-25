@@ -9,20 +9,20 @@ export default LoginScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container1}>
 
-            <View>
+            <View style={styles.containerCabecalho}>
                 <Text style={styles.textoTitulo2} >SADO</Text>
                 <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
                 <Text style={styles.textoTitulo1} >Login</Text>
             </View>
 
-            <View style={styles.containerDescricao}>
+            <View style={styles.containerCentro}>
                 <TouchableOpacity style={styles.button1} onPress={ navegarParaTabNavigatorCompleta } >
                     <Text style={styles.textButton1}>Login com Google</Text>
                 </TouchableOpacity>
             </View>
 
-            <View>
-                
+            <View style={styles.containerRodape}>
+                <Text>Contato | Sobre</Text>
             </View>
             
         </SafeAreaView>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     container1: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         alignItems: 'center'
     },
     textoTitulo1: {
@@ -54,9 +54,9 @@ const styles = StyleSheet.create({
         marginTop: 5,
         fontSize: 12
     },
-    containerDescricao: {
-        width: 300,
-        marginTop: 80
+    containerCabecalho: {
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     button1: {
         width: 160,
@@ -70,10 +70,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 14,
         color: 'blue'
-    },
-    image1: {
-        marginTop: 60,
-        width: 60,
-        height: 30
     }
 })
