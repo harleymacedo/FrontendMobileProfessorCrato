@@ -16,6 +16,7 @@ import LaboratorioDetalheScreen from './screens/LaboratorioDetalheScreen'
 import ComissaoDetalheScreen from './screens/ComissaoDetalheScreen'
 import LaboratorioNovaOcorrencia from './screens/LaboratorioNovaOcorrencia'
 import SobreScreen from './screens/SobreScreen'
+import ConfiguracoesScreen from './screens/ConfiguracoesScreen'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -52,11 +53,11 @@ function TabNavigatorCompleta() {
             />
 
             <Tab.Screen
-                name="SobreTab"
-                component={SobreScreen}
+                name="ConfiguracoesScreen"
+                component={ConfiguracoesScreen}
                 options={{
-                    tabBarLabel: 'Sobre',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-sobre-32.png')} />)
+                    tabBarLabel: 'Config.',
+                    tabBarIcon: () => (<Image source={require('./assets/icons8-config-32.png')} />)
                 }}
             />
 

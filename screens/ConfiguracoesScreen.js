@@ -1,19 +1,30 @@
-import {SafeAreaView, View, Text, Table, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import { SafeAreaView, View, Text, Switch, StyleSheet, TouchableOpacity } from 'react-native'
+import { useState } from 'react'
 
 export default SobreScreen = () => {
+
+    const [isEnabled, setIsEnabled] = useState(false)
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState)
+
     return (
         <SafeAreaView style={styles.container1}>
             <Text style={styles.textoTitulo2} >SADO</Text>
             <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
             <Text style={styles.textoTitulo1} >Configurações</Text>
-            <View style={styles.containerDescricao}>
-                <TouchableOpacity>
-                    <Text style={styles.textoDescricao}>
+            <View style={styles.containerCentral}>
+                <View style={styles.containerSwitch}>
+                    <Switch
+                        onValueChange={toggleSwitch}
+                        value={isEnabled}
+                    />
+                    <Text style={styles.textoSwitch}>Notificações</Text>
+                </View>
+                <TouchableOpacity style={styles.buttonLogout}>
+                    <Text style={styles.textoButtonLogout}>
                         Logout
                     </Text>
                 </TouchableOpacity>
             </View>
-            <Image source={require('../assets/LogoLaisIFCE.png')} style={styles.image1}/>
         </SafeAreaView>
     )
 }
@@ -43,18 +54,31 @@ const styles = StyleSheet.create({
         marginTop: 5,
         fontSize: 12
     },
-    containerDescricao: {
+    containerCentral: {
         width: 300,
-        marginTop: 80
+        marginTop: 80,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    textoDescricao: {
+    containerSwitch: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    textoSwitch: {
+        marginLeft: 10
+    },
+    textoButtonLogout: {
         fontFamily: 'Verdana',
         textAlign: 'justify',
-        fontSize: 14
+        fontSize: 14,
+        textAlign: 'center',
+        marginTop: 4
     },
-    image1: {
-        marginTop: 60,
-        width: 60,
-        height: 30
+    buttonLogout: {
+        backgroundColor: '#ff704d',
+        borderRadius: 4,
+        width: 120,
+        height: 30,
+        marginTop: 60
     }
 })
