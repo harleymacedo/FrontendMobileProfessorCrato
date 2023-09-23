@@ -1,10 +1,14 @@
 import { SafeAreaView, View, Text, Switch, StyleSheet, TouchableOpacity } from 'react-native'
 import { useState } from 'react'
 
-export default SobreScreen = () => {
+export default ConfiguracoesScreen = ({navigation}) => {
 
     const [isEnabled, setIsEnabled] = useState(false)
     const toggleSwitch = () => setIsEnabled(previousState => !previousState)
+
+    const navegarParaLogin = () => {
+        navigation.navigate('LoginScreen')
+    }
 
     return (
         <SafeAreaView style={styles.container1}>
@@ -19,7 +23,7 @@ export default SobreScreen = () => {
                     />
                     <Text style={styles.textoSwitch}>Notificações</Text>
                 </View>
-                <TouchableOpacity style={styles.buttonLogout}>
+                <TouchableOpacity style={styles.buttonLogout} onPress={navegarParaLogin}>
                     <Text style={styles.textoButtonLogout}>
                         Logout
                     </Text>
