@@ -1,21 +1,19 @@
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CardProfessorComp from './CardProfComp'
 
-export default ProfessorScreen = () => {
+export default ChamadoScreen = ({navigation}) => {
 
-    const [professores, setProfessores] = useState([])
-    const [texto, setTexto] = useState('')
+    const [chamados, setChamados] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect( () => {
         const getDadosInciais = async () => {
             try {
                 setIsLoading(true)                
-                const url = 'http://localhost:3000/professor/todos'
-                const profsBuscados = await axios.get(url)
-                setProfessores(profsBuscados.data.professores)
+                const url = 'http://localhost:3000/chamados/todos'
+                const chamadosBuscados = await axios.get(url)
+                setChamados(chamadosBuscados.data.chamados)
                 setIsLoading(false)
             } catch (error) {
                 Alert.alert('Erro durante a consulta')
@@ -24,37 +22,26 @@ export default ProfessorScreen = () => {
         getDadosInciais()
     }, [])
 
-    const atualizarTexto = (value) => {
-        setTexto(value)
-    }
-
-    const pesquisar = async () => {
-        try {
-            const url = `http://localhost:3000/professor/porNome/${texto}`
-            const result = await axios.get(url)
-            setProfessores(result.data.professores)
-        } catch (error) {
-            Alert.alert('Erro durante a consulta')
-        }
+    const navegarParaNovoChamado = () => {
+        navigation.navigate('NovoChamado')
     }
 
     return (
         <SafeAreaView style={styles.container1}>
-            <Text style={styles.textoTitulo2} >SADO</Text>
-            <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
-            <Text style={styles.textoTitulo1} >Professor</Text>
+            <Text style={styles.textoTitulo2} >SIGELAB</Text>
+            <Text style={styles.textoTitulo3}>Sistema de Gestão de Laboratório</Text>
+            <Text style={styles.textoTitulo1} >Chamado</Text>
             <View style={styles.containerForm}>
-                <TextInput style={styles.input1} onChangeText={atualizarTexto} placeholder='Pesquisa por nome ou área' />
-                <TouchableOpacity style={styles.button1} onPress={pesquisar}>
-                    <Text style={styles.textButton1} >Filtrar</Text>
+                <TouchableOpacity style={styles.button2} onPress={navegarParaOcorrencia}>
+                    <Text style={styles.textButton2}> + Nova reserva </Text>
                 </TouchableOpacity>
             </View>
             <ScrollView style={styles.containerResultado}>
                 {
-                    isLoading ? <ActivityIndicator style={styles.spinner1} /> : 
-                    professores.map( (professorAtual) => {
+                    chamados.map( (chamadoAtual) => {
                         return(
-                            <CardProfessorComp key={professorAtual._id} professor={professorAtual} />
+                            <Text>Exemplo</Text>
+                            // <CardLaboratorioComp key={laboratorioAtual._id} laboratorio={laboratorioAtual} navigation={navigation} />
                         )
                     })
                 }
@@ -93,7 +80,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 20,
-        height: 100
+        height: 50,
     },
     input1: {
         width: 200,
@@ -113,17 +100,25 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 5
     },
+    button2: {
+        width: 300,
+        height: 30,
+        borderRadius: 3,
+        backgroundColor: '#889988',
+        marginLeft: 4
+    },
+    textButton2: {
+        textAlign: 'center',
+        paddingTop: 5
+    },
     containerResultado: {
         width: 300,
-        height: 420,
+        height: 370,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: '#77aa88',
         marginBottom: 60,
-        marginTop: 20,
-    },
-    spinner1: {
-        size: "large",
-        color: "#00ff00"
+        marginTop: 20
     }
+
 })

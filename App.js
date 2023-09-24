@@ -7,13 +7,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import CabecalhoComp from './screens/CabecalhoComp'
 import RodapeComp from './screens/RodapeComp'
 import LoginScreen from './screens/LoginScreen'
-import ProfessorScreen from './screens/ProfessorScreen'
-import ComissaoScreen from './screens/ComissaoScreen'
-import AtividadeScreen from './screens/AtividadeScreen'
 import LaboratorioScreen from './screens/LaboratorioScreen'
-import ProfessorDetalheScreen from './screens/ProfessorDetalheScreen'
 import LaboratorioDetalheScreen from './screens/LaboratorioDetalheScreen'
-import ComissaoDetalheScreen from './screens/ComissaoDetalheScreen'
 import LaboratorioNovaOcorrencia from './screens/LaboratorioNovaOcorrencia'
 import SobreScreen from './screens/SobreScreen'
 import ConfiguracoesScreen from './screens/ConfiguracoesScreen'
@@ -26,28 +21,28 @@ function TabNavigatorCompleta() {
         <Tab.Navigator screenOptions={{ headerShown: false }} >
 
             <Tab.Screen
-                name="ProfessorTab"
-                component={StackNavigatorProfessor}
-                options={{
-                    tabBarLabel: 'Professor',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />)
-                }}
-            />
-
-            <Tab.Screen
-                name="ComissaoTab"
-                component={StackNavigatorComissao}
-                options={{
-                    tabBarLabel: 'Comissão',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-grupo-b-32.png')} />)
-                }}
-            />
-
-            <Tab.Screen
                 name="LaboratorioTab"
                 component={StackNavigatorLaboratorio}
                 options={{
                     tabBarLabel: 'Laboratorio',
+                    tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
+                }}
+            />
+
+            <Tab.Screen
+                name="ReservaTab"
+                component={StackNavigatorLaboratorio}
+                options={{
+                    tabBarLabel: 'Reserva',
+                    tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
+                }}
+            />
+
+            <Tab.Screen
+                name="ChamdoTab"
+                component={StackNavigatorLaboratorio}
+                options={{
+                    tabBarLabel: 'Chamado',
                     tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
                 }}
             />

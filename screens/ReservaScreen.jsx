@@ -1,21 +1,19 @@
-import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native'
+import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CardComissaoComp from './CardComissaoComp'
 
-export default ComissaoScreen = () => {
+export default ReservaScreen = ({navigation}) => {
 
-    const [comissoes, setComissoes] = useState([])
-    const [texto, setTexto] = useState('')
+    const [reservas, setReservas] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect( () => {
         const getDadosInciais = async () => {
             try {
                 setIsLoading(true)                
-                const url = 'http://localhost:3000/comissao/todos'
-                const comissoesBuscados = await axios.get(url)
-                setComissoes(comissoesBuscados.data.comissoes)
+                const url = 'http://localhost:3000/reservas/todas'
+                const reservasBuscadas = await axios.get(url)
+                setReservas(reservasBuscadas.data.reservas)
                 setIsLoading(false)
             } catch (error) {
                 Alert.alert('Erro durante a consulta')
@@ -24,45 +22,26 @@ export default ComissaoScreen = () => {
         getDadosInciais()
     }, [])
 
-    const atualizarTexto = (value) => {
-        setTexto(value)
-    }
-
-    const selectItem = (value) => {
-        setTexto(value)
-    }
-
-    const pesquisar = async () => {
-        try {
-            const url = `http://localhost:3000/comissao/porNome/${texto}`
-            const result = await axios.get(url)
-            setComissoes(result.data.comissoes)
-        } catch (error) {
-            Alert.alert('Erro durante a consulta')
-        }
+    const navegarParaNovaReserva = () => {
+        navigation.navigate('LaboratorioNovaReserva')
     }
 
     return (
         <SafeAreaView style={styles.container1}>
-            <Text style={styles.textoTitulo2} >SADO</Text>
-            <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
-            <Text style={styles.textoTitulo1} >Comissão</Text>
+            <Text style={styles.textoTitulo2} >SIGELAB</Text>
+            <Text style={styles.textoTitulo3}>Sistema de Gestão de Laboratório</Text>
+            <Text style={styles.textoTitulo1} >Reserva</Text>
             <View style={styles.containerForm}>
-                <TextInput style={styles.input1} onChangeText={atualizarTexto} placeholder='Pesquisa por nome' />                
-                <TouchableOpacity style={styles.button1} onPress={pesquisar}>
-                    <Text style={styles.textButton1} >Filtrar</Text>
-                </TouchableOpacity>
-            </View>
-            <View>
-                <TouchableOpacity style={styles.button2}>
-                    <Text style={styles.textButton2}> + Nova comissão </Text>
+                <TouchableOpacity style={styles.button2} onPress={navegarParaOcorrencia}>
+                    <Text style={styles.textButton2}> + Nova reserva </Text>
                 </TouchableOpacity>
             </View>
             <ScrollView style={styles.containerResultado}>
                 {
-                    comissoes.map( (comissaoAtual) => {
+                    reservas.map( (reservaAtual) => {
                         return(
-                            <CardComissaoComp key={comissaoAtual._id} comissao={comissaoAtual} />
+                            <Text>Exemplo</Text>
+                            // <CardLaboratorioComp key={laboratorioAtual._id} laboratorio={laboratorioAtual} navigation={navigation} />
                         )
                     })
                 }
@@ -101,8 +80,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 20,
-        height: 100,
-        // backgroundColor: 'gray'
+        height: 50,
     },
     input1: {
         width: 200,
@@ -135,7 +113,7 @@ const styles = StyleSheet.create({
     },
     containerResultado: {
         width: 300,
-        height: 350,
+        height: 370,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: '#77aa88',
