@@ -1,16 +1,14 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, SafeAreaView, View, Image } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import CabecalhoComp from './screens/CabecalhoComp'
-import RodapeComp from './screens/RodapeComp'
 import LoginScreen from './screens/LoginScreen'
 import LaboratorioScreen from './screens/LaboratorioScreen'
 import LaboratorioDetalheScreen from './screens/LaboratorioDetalheScreen'
-import LaboratorioNovaOcorrencia from './screens/LaboratorioNovaOcorrencia'
-import SobreScreen from './screens/SobreScreen'
+import ReservaScreen from './screens/ReservaScreen'
+import ChamadoScreen from './screens/ChamadoScreen'
 import ConfiguracoesScreen from './screens/ConfiguracoesScreen'
 
 const Tab = createBottomTabNavigator()
@@ -31,7 +29,7 @@ function TabNavigatorCompleta() {
 
             <Tab.Screen
                 name="ReservaTab"
-                component={StackNavigatorLaboratorio}
+                component={StackNavigatorReserva}
                 options={{
                     tabBarLabel: 'Reserva',
                     tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
@@ -39,8 +37,8 @@ function TabNavigatorCompleta() {
             />
 
             <Tab.Screen
-                name="ChamdoTab"
-                component={StackNavigatorLaboratorio}
+                name="ChamadoTab"
+                component={StackNavigatorChamado}
                 options={{
                     tabBarLabel: 'Chamado',
                     tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
@@ -60,44 +58,44 @@ function TabNavigatorCompleta() {
     )
 }
 
-function StackNavigatorProfessor() {
+function StackNavigatorReserva() {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="ProfessorScreen"
-                component={ProfessorScreen}
+                name="ReservaScreen"
+                component={ReservaScreen}
                 options={
-                    { title: "Professor", }
+                    { title: "Reserva", }
                 }
             />
 
             <Stack.Screen
-                name="ProfessorDetalheScreen"
-                component={ProfessorDetalheScreen}
+                name="ReservaDetalheScreen"
+                component={ReservaDetalheScreen}
                 options={
-                    { title: "Professor Detalhe" }
+                    { title: "Reserva Detalhe" }
                 }
             />
         </Stack.Navigator>
     )
 }
 
-function StackNavigatorComissao() {
+function StackNavigatorChamado() {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="ComissaoScreen"
-                component={ComissaoScreen}
+                name="ChamadoScreen"
+                component={ChamadoScreen}
                 options={
-                    { title: "Comissão" }
+                    { title: "Chamado" }
                 }
             />
 
             <Stack.Screen
-                name="ComissaoDetalheScreen"
-                component={ComissaoDetalheScreen}
+                name="ChamadoDetalheScreen"
+                component={ChamadoDetalheScreen}
                 options={
-                    { title: "Comissão Detalhe" }
+                    { title: "Chamado Detalhe" }
                 }
             />
         </Stack.Navigator>
@@ -124,12 +122,20 @@ function StackNavigatorLaboratorio() {
             />
 
             <Stack.Screen
-                name="LaboratorioNovaOcorrencia"
-                component={LaboratorioNovaOcorrencia}
+                name="ReservaScreen"
+                component={ReservaScreen}
                 options={
-                    { title: "Laboratório" }
+                    { title: "Reserva" }
                 }
-            />  
+            />
+
+            <Stack.Screen
+                name="ChamdoScreen"
+                component={ChamadoScreen}
+                options={
+                    { title: "Chamado" }
+                }
+            />    
         </Stack.Navigator>
     )
 }
