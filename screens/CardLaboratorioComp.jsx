@@ -18,6 +18,12 @@ export default CardLaboratorioComp = (props) => {
             <TouchableOpacity style={styles.button1} onPress={navegarParaDetalhe}>
                 <Text style={styles.textButton1}> + Detalhes </Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.button1} onPress={navegarParaDetalhe}>
+                <Text style={styles.textButton1}> Reserva </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button1} onPress={navegarParaDetalhe}>
+                <Text style={styles.textButton1}> Chamado </Text>
+            </TouchableOpacity>
         </View>
     )
 }

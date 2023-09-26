@@ -29,8 +29,8 @@ export default LaboratorioScreen = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.container1}>
-            <Text style={styles.textoTitulo2} >SADO</Text>
-            <Text style={styles.textoTitulo3}>Sistema de Apoio ao Docente</Text>
+            <Text style={styles.textoTitulo2} >SIGELAB</Text>
+            <Text style={styles.textoTitulo3}>Sistema de Gestão de Laboratório</Text>
             <Text style={styles.textoTitulo1} >Laboratório</Text>
             <View style={styles.containerForm}>
                 <TouchableOpacity style={styles.button2} onPress={navegarParaOcorrencia}>
