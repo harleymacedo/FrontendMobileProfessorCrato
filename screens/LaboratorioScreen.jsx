@@ -24,7 +24,7 @@ export default LaboratorioScreen = ({navigation}) => {
     }, [])
 
     const navegarParaOcorrencia = () => {
-        navigation.navigate('LaboratorioNovaOcorrencia')
+        navigation.navigate('ReservaScreen')
     }
 
     return (
@@ -32,11 +32,6 @@ export default LaboratorioScreen = ({navigation}) => {
             <Text style={styles.textoTitulo2} >SIGELAB</Text>
             <Text style={styles.textoTitulo3}>Sistema de Gestão de Laboratório</Text>
             <Text style={styles.textoTitulo1} >Laboratório</Text>
-            <View style={styles.containerForm}>
-                <TouchableOpacity style={styles.button2} onPress={navegarParaOcorrencia}>
-                    <Text style={styles.textButton2}> + Nova ocorrência </Text>
-                </TouchableOpacity>
-            </View>
             <ScrollView style={styles.containerResultado}>
                 {
                     laboratorios.map( (laboratorioAtual) => {

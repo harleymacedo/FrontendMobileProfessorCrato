@@ -8,7 +8,9 @@ import LoginScreen from './screens/LoginScreen'
 import LaboratorioScreen from './screens/LaboratorioScreen'
 import LaboratorioDetalheScreen from './screens/LaboratorioDetalheScreen'
 import ReservaScreen from './screens/ReservaScreen'
+import ReservaDetalheScreen from './screens/ReservaDetalheScreen'
 import ChamadoScreen from './screens/ChamadoScreen'
+import ChamadoDetalheScreen from './screens/ChamadoDetalheScreen'
 import ConfiguracoesScreen from './screens/ConfiguracoesScreen'
 
 const Tab = createBottomTabNavigator()
@@ -32,7 +34,7 @@ function TabNavigatorCompleta() {
                 component={StackNavigatorReserva}
                 options={{
                     tabBarLabel: 'Reserva',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
+                    tabBarIcon: () => (<Image source={require('./assets/icons8-reserva-32.png')} />)
                 }}
             />
 
@@ -41,7 +43,7 @@ function TabNavigatorCompleta() {
                 component={StackNavigatorChamado}
                 options={{
                     tabBarLabel: 'Chamado',
-                    tabBarIcon: () => (<Image source={require('./assets/icons8-thin-client-32.png')} />)
+                    tabBarIcon: () => (<Image source={require('./assets/icons8-manutencao-32.png')} />)
                 }}
             />
 

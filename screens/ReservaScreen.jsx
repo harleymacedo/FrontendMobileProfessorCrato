@@ -23,7 +23,7 @@ export default ReservaScreen = ({navigation}) => {
     }, [])
 
     const navegarParaNovaReserva = () => {
-        navigation.navigate('LaboratorioNovaReserva')
+        navigation.navigate('ChamadoScreen')
     }
 
     return (
@@ -32,8 +32,12 @@ export default ReservaScreen = ({navigation}) => {
             <Text style={styles.textoTitulo3}>Sistema de Gestão de Laboratório</Text>
             <Text style={styles.textoTitulo1} >Reserva</Text>
             <View style={styles.containerForm}>
-                <TouchableOpacity style={styles.button2} onPress={navegarParaOcorrencia}>
-                    <Text style={styles.textButton2}> + Nova reserva </Text>
+                <TextInput style={styles.input1} onChangeText={null} placeholder='Laboratório' />
+                <TextInput style={styles.input1} onChangeText={null} placeholder='Hora de início' />
+                <TextInput style={styles.input1} onChangeText={null} placeholder='Hora de Fim' />
+                <TextInput style={null} onChangeText={null} />
+                <TouchableOpacity style={styles.button2} onPress={navegarParaNovaReserva}>
+                    <Text style={styles.textButton2}> Confirmar </Text>
                 </TouchableOpacity>
             </View>
             <ScrollView style={styles.containerResultado}>
@@ -77,17 +81,18 @@ const styles = StyleSheet.create({
     },
     containerForm: {
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'collumn',
         justifyContent: 'center',
         marginTop: 20,
         height: 50,
     },
     input1: {
-        width: 200,
+        width: 300,
         height: 30,
         borderWidth: 1,
         borderColor: '#77aa88',
-        borderRadius: 3
+        borderRadius: 3,
+        marginTop: 4
     },
     button1: {
         width: 94,
@@ -113,7 +118,7 @@ const styles = StyleSheet.create({
     },
     containerResultado: {
         width: 300,
-        height: 370,
+        height: 200,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: '#77aa88',
