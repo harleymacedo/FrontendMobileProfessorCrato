@@ -36,20 +36,13 @@ export default ReservaScreen = ({navigation}) => {
                 <TextInput style={styles.input1} onChangeText={null} placeholder='Hora de início' />
                 <TextInput style={styles.input1} onChangeText={null} placeholder='Hora de Fim' />
                 <TextInput style={null} onChangeText={null} />
+                <View style={styles.containerResultado}>
+                    <Text>Calendar</Text>
+                </View>
                 <TouchableOpacity style={styles.button2} onPress={navegarParaNovaReserva}>
                     <Text style={styles.textButton2}> Confirmar </Text>
                 </TouchableOpacity>
             </View>
-            <ScrollView style={styles.containerResultado}>
-                {
-                    reservas.map( (reservaAtual) => {
-                        return(
-                            <Text>Exemplo</Text>
-                            // <CardLaboratorioComp key={laboratorioAtual._id} laboratorio={laboratorioAtual} navigation={navigation} />
-                        )
-                    })
-                }
-            </ScrollView>
         </SafeAreaView>
     )
 }
