@@ -132,7 +132,7 @@ function StackNavigatorLaboratorio() {
             />
 
             <Stack.Screen
-                name="ChamdoScreen"
+                name="ChamadoScreen"
                 component={ChamadoScreen}
                 options={
                     { title: "Chamado" }
